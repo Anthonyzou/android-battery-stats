@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battery stats viewer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Battery stats viewer</h1>
+    <label class="picker">
+      Open <code>dumpsys batterystats</code> file
+      <input id="file" type="file" accept=".txt,text/plain">
+    </label>
+    <span id="status"></span>
+  </header>
+
+  <div id="drop" class="drop">Drop a batterystats .txt file here, or use the picker above.<br>
+    The file is parsed locally in your browser and never uploaded.</div>
+
+  <main id="report" hidden>
+    <section>
+      <h2>Overview</h2>
+      <div id="overview" class="cards"></div>
+    </section>
+    <section>
+      <h2>Battery level</h2>
+      <div id="timeline"></div>
+    </section>
+    <div class="grid">
+      <section>
+        <h2>Power use by component</h2>
+        <div id="components"></div>
+      </section>
+      <section>
+        <h2>Radio drain</h2>
+        <div id="radio"></div>
+      </section>
+    </div>
+    <section>
+      <h2>Apps by power</h2>
+      <div id="apps"></div>
+    </section>
+    <section>
+      <h2>Partial wake locks</h2>
+      <div id="wakelocks"></div>
+    </section>
+    <div class="grid">
+      <section>
+        <h2>Kernel wake locks</h2>
+        <div id="kernel"></div>
+      </section>
+      <section>
+        <h2>Wakeup reasons</h2>
+        <div id="wakeups"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
